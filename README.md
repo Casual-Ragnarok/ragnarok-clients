@@ -56,3 +56,13 @@ RagexeRE - kRO 测试服客户端 EXE
 - `cht.md`：繁中客户端或繁中补丁整合包
 
 新增条目时建议包含客户端名称、日期、是否改动、补丁状态、下载地址和获取命令。
+
+## GitHub Pages
+
+静态页面由 `scripts/generate_pages.py` 根据各年份目录中的 Markdown 文件自动生成：
+
+```bash
+python scripts/generate_pages.py
+```
+
+生成结果位于 `docs/index.html`。推送到 `main` 分支后，GitHub Actions 会重新生成并部署页面。仓库首次启用时，需要在 GitHub 的 **Settings → Pages → Build and deployment → Source** 中选择 **GitHub Actions**。

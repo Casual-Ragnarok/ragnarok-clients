@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Ragnarok Online Renewal 客户端资源索引">
+  <title>Ragnarok Clients</title>
+  <style>
+    :root{color-scheme:light;--ink:#20231f;--muted:#687068;--paper:#f5f6f2;--surface:#fff;--line:#d9ddd5;--accent:#26705d;--accent-dark:#195243}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:"Segoe UI","Microsoft YaHei",Arial,sans-serif;letter-spacing:0}
+    button,a{font:inherit}button{color:inherit}.shell{width:min(1180px,calc(100% - 40px));margin:0 auto}
+    header{padding:72px 0 44px;border-bottom:1px solid var(--line)}.eyebrow{margin:0 0 16px;color:var(--accent);font:700 12px/1.2 Consolas,monospace;text-transform:uppercase}
+    h1{max-width:760px;margin:0;font-size:clamp(38px,7vw,76px);line-height:.98;font-weight:760;letter-spacing:0}.intro{max-width:620px;margin:24px 0 0;color:var(--muted);font-size:17px;line-height:1.7}
+    .summary{display:flex;gap:28px;margin-top:36px}.metric strong{display:block;font:700 26px/1 Consolas,monospace}.metric span{display:block;margin-top:6px;color:var(--muted);font-size:12px}
+    main{padding:36px 0 80px}.toolbar{position:sticky;top:0;z-index:2;padding:14px 0;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(12px)}
+    .search-wrap{position:relative}.search-wrap svg{position:absolute;left:15px;top:50%;width:18px;transform:translateY(-50%);fill:none;stroke:var(--muted);stroke-width:2}
+    #search{width:100%;height:48px;padding:0 16px 0 44px;border:1px solid var(--line);border-radius:6px;background:var(--surface);outline:none;transition:border-color .2s ease,box-shadow .2s ease}
+    #search:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(38,112,93,.12)}.filters{display:flex;gap:8px;margin-top:10px;overflow:auto;padding-bottom:3px;scrollbar-width:thin}
+    .filter{flex:none;padding:7px 12px;border:1px solid var(--line);border-radius:5px;background:transparent;cursor:pointer}.filter:hover,.filter.active{border-color:var(--accent);background:var(--accent);color:#fff}
+    .result-line{margin:26px 0 12px;color:var(--muted);font:13px/1.4 Consolas,monospace}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .client-card{display:flex;min-width:0;min-height:282px;flex-direction:column;padding:24px;border:1px solid var(--line);border-radius:7px;background:var(--surface);box-shadow:0 12px 32px rgba(29,42,35,.04);animation:enter .45s both;animation-delay:calc(var(--i) * 45ms)}
+    @keyframes enter{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}.card-meta{display:flex;align-items:center;gap:8px}.year{font:700 13px/1 Consolas,monospace}.region{padding:4px 7px;border:1px solid #bcd0c8;border-radius:4px;color:var(--accent);font-size:12px}
+    h2{overflow-wrap:anywhere;margin:22px 0 14px;font:700 20px/1.25 Consolas,"Microsoft YaHei",sans-serif}.description,.status{margin:0;color:#454b46;line-height:1.55}.status{margin-top:6px;color:var(--muted);font-size:14px}
+    .actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:auto;padding-top:24px}.action{display:flex;min-width:0;height:42px;align-items:center;justify-content:space-between;gap:8px;padding:0 13px;border:1px solid var(--line);border-radius:5px;background:var(--surface);color:var(--ink);text-decoration:none;cursor:pointer;transition:transform .2s ease,border-color .2s ease,background .2s ease}.action:hover{border-color:var(--accent)}.action:active{transform:translateY(1px)}
+    .action.primary{border-color:var(--accent);background:var(--accent);color:#fff}.action.primary:hover{background:var(--accent-dark)}.action svg{width:17px;flex:none;fill:none;stroke:currentColor;stroke-width:1.8}.action.copied{border-color:var(--accent);color:var(--accent)}.disabled{color:var(--muted);cursor:not-allowed}
+    .empty{display:none;padding:64px 20px;border-top:1px solid var(--line);text-align:center;color:var(--muted)}footer{padding:28px 0;border-top:1px solid var(--line);color:var(--muted);font-size:13px}footer a{color:var(--accent)}
+    @media(max-width:720px){.shell{width:min(100% - 28px,1180px)}header{padding:48px 0 32px}.summary{gap:20px}.grid{grid-template-columns:1fr}.client-card{min-height:270px;padding:20px}.actions{grid-template-columns:1fr}.toolbar{padding-top:10px}}
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+  </style>
+</head>
+<body>
+  <header><div class="shell"><p class="eyebrow">Renewal client archive</p><h1>Ragnarok Clients</h1><p class="intro">按年份与语言整理的 Ragnarok Online 完整客户端资源。打开 Hugging Face 数据集，或复制 Git SSH 命令直接获取。</p><div class="summary"><div class="metric"><strong>10</strong><span>客户端资源</span></div><div class="metric"><strong>5</strong><span>收录年份</span></div></div></div></header>
+  <main class="shell"><div class="toolbar"><label class="search-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input id="search" type="search" placeholder="搜索名称、年份或语言" aria-label="搜索客户端"></label><div class="filters" aria-label="筛选客户端"><button class="filter active" data-filter="all" type="button">全部</button><button class="filter" data-filter="year:2023" type="button">2023</button><button class="filter" data-filter="year:2022" type="button">2022</button><button class="filter" data-filter="year:2021" type="button">2021</button><button class="filter" data-filter="year:2015" type="button">2015</button><button class="filter" data-filter="year:2010" type="button">2010</button><button class="filter" data-filter="region:kRO" type="button">kRO</button><button class="filter" data-filter="region:简中" type="button">简中</button><button class="filter" data-filter="region:繁中" type="button">繁中</button></div></div><p class="result-line" id="result-count" aria-live="polite"></p><section class="grid" id="client-grid">
+      <article class="client-card" data-year="2023" data-region="简中" data-search="casualro_fullclient_20230404 2023 简中 20230404 完整简中客户端 已改动，覆盖 随缘仙境 简中补丁" style="--i:0">
+        <div class="card-meta"><span class="year">2023</span><span class="region">简中</span></div>
+        <h2>CasualRO_FullClient_20230404</h2>
+        <p class="description">20230404 完整简中客户端</p>
+        <p class="status">已改动，覆盖 随缘仙境 简中补丁</p>
+        <div class="actions"><a class="action primary" href="https://huggingface.co/datasets/EXPM02/CasualRO_FullClient_20230404" target="_blank" rel="noreferrer"><span>打开 HF 页面</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M19 5l-9 9"/><path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg></a><button class="action copy" type="button" data-copy="git@hf.co:datasets/EXPM02/CasualRO_FullClient_20230404" aria-label="复制 Git SSH 命令"><span>复制 Git SSH</span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="11" height="11" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg></button></div>
+      </article>
+      <article class="client-card" data-year="2023" data-region="kRO" data-search="kro_fullclient_20230404 2023 kro 20230404 完整韩版客户端 未改动，可打简中补丁" style="--i:1">
+        <div class="card-meta"><span class="year">2023</span><span class="region">kRO</span></div>
+        <h2>kRO_FullClient_20230404</h2>
+        <p class="description">20230404 完整韩版客户端</p>
+        <p class="status">未改动，可打简中补丁</p>
+        <div class="actions"><a class="action primary" href="https://huggingface.co/datasets/EXPM02/kRO_FullClient_20230404" target="_blank" rel="noreferrer"><span>打开 HF 页面</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M19 5l-9 9"/><path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg></a><button class="action copy" type="button" data-copy="git@hf.co:datasets/EXPM02/kRO_FullClient_20230404" aria-label="复制 Git SSH 命令"><span>复制 Git SSH</span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="11" height="11" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg></button></div>
+      </article>
+      <article class="client-card" data-year="2022" data-region="kRO" data-search="kro_fullclient_20220706 2022 kro 20220706 完整韩版客户端 未改动，可打简中补丁" style="--i:2">
+        <div class="card-meta"><span class="year">2022</span><span class="region">kRO</span></div>
+        <h2>kRO_FullClient_20220706</h2>
+        <p class="description">20220706 完整韩版客户端</p>
+        <p class="status">未改动，可打简中补丁</p>
+        <div class="actions"><a class="action primary" href="https://huggingface.co/datasets/EXPM02/KRO-FullClient-20220706" target="_blank" rel="noreferrer"><span>打开 HF 页面</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M19 5l-9 9"/><path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg></a><button class="action copy" type="button" data-copy="git@hf.co:datasets/EXPM02/KRO-FullClient-20220706" aria-label="复制 Git SSH 命令"><span>复制 Git SSH</span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="11" height="11" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg></button></div>
+      </article>
+      <article class="client-card" data-year="2021" data-region="简中" data-search="casualro_fullclient_20211103 2021 简中 20211103 完整简中客户端 已改动，覆盖 随缘仙境 简中补丁" style="--i:3">
+        <div class="card-meta"><span class="year">2021</span><span class="region">简中</span></div>
+        <h2>CasualRO_FullClient_20211103</h2>
+        <p class="description">20211103 完整简中客户端</p>
+        <p class="status">已改动，覆盖 随缘仙境 简中补丁</p>
+        <div class="actions"><a class="action primary" href="https://huggingface.co/datasets/EXPM02/CasualRO_FullClient_20211103" target="_blank" rel="noreferrer"><span>打开 HF 页面</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M19 5l-9 9"/><path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg></a><button class="action copy" type="button" data-copy="git@hf.co:datasets/EXPM02/CasualRO_FullClient_20211103" aria-label="复制 Git SSH 命令"><span>复制 Git SSH</span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="11" height="11" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg></button></div>
+      </article>
+      <article class="client-card" data-year="2021" data-region="繁中" data-search="casualro_fullclient_20211103 2021 繁中 20211103 完整台版客户端 已改动，覆盖 随缘仙境 繁中补丁" style="--i:4">
+        <div class="card-meta"><span class="year">2021</span><span class="region">繁中</span></div>
+        <h2>CasualRO_FullClient_20211103</h2>
+        <p class="description">20211103 完整台版客户端</p>
+        <p class="status">已改动，覆盖 随缘仙境 繁中补丁</p>
+        <div class="actions"><a class="action primary" href="https://huggingface.co/datasets/EXPM02/CasualRO_FullClient_20211103_cht" target="_blank" rel="noreferrer"><span>打开 HF 页面</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M19 5l-9 9"/><path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg></a><button class="action copy" type="button" data-copy="git@hf.co:datasets/EXPM02/CasualRO_FullClient_20211103_cht" aria-label="复制 Git SSH 命令"><span>复制 Git SSH</span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="11" height="11" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg></button></div>
+      </article>
+      <article class="client-card" data-year="2021" data-region="kRO" data-search="kro_fullclient_20210607 2021 kro 20210607 完整韩版客户端 未改动，可打简中补丁" style="--i:5">
+        <div class="card-meta"><span class="year">2021</span><span class="region">kRO</span></div>
+        <h2>kRO_FullClient_20210607</h2>
+        <p class="description">20210607 完整韩版客户端</p>
+        <p class="status">未改动，可打简中补丁</p>
+        <div class="actions"><a class="action primary" href="https://huggingface.co/datasets/EXPM02/kRO_FullClient_20210607" target="_blank" rel="noreferrer"><span>打开 HF 页面</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M19 5l-9 9"/><path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg></a><button class="action copy" type="button" data-copy="git@hf.co:datasets/EXPM02/kRO_FullClient_20210607" aria-label="复制 Git SSH 命令"><span>复制 Git SSH</span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="11" height="11" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg></button></div>
+      </article>
+      <article class="client-card" data-year="2021" data-region="kRO" data-search="kro_fullclient_20211117 2021 kro 20211117 完整韩版客户端 未改动，可打简中补丁" style="--i:6">
+        <div class="card-meta"><span class="year">2021</span><span class="region">kRO</span></div>
+        <h2>kRO_FullClient_20211117</h2>
+        <p class="description">20211117 完整韩版客户端</p>
+        <p class="status">未改动，可打简中补丁</p>
+        <div class="actions"><a class="action primary" href="https://huggingface.co/datasets/EXPM02/kRO_FullClient_20211117" target="_blank" rel="noreferrer"><span>打开 HF 页面</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M19 5l-9 9"/><path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg></a><button class="action copy" type="button" data-copy="git@hf.co:datasets/EXPM02/kRO_FullClient_20211117" aria-label="复制 Git SSH 命令"><span>复制 Git SSH</span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="11" height="11" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg></button></div>
+      </article>
+      <article class="client-card" data-year="2021" data-region="kRO" data-search="kro-fullclient-2021-11-17-sak 2021 kro 20211117 完整韩版客户端 未改动，可打简中补丁" style="--i:7">
+        <div class="card-meta"><span class="year">2021</span><span class="region">kRO</span></div>
+        <h2>KRO-FullClient-2021-11-17-SAK</h2>
+        <p class="description">20211117 完整韩版客户端</p>
+        <p class="status">未改动，可打简中补丁</p>
+        <div class="actions"><a class="action primary" href="https://huggingface.co/datasets/EXPM02/KRO-FullClient-2021-11-17-SAK" target="_blank" rel="noreferrer"><span>打开 HF 页面</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M19 5l-9 9"/><path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg></a><button class="action copy" type="button" data-copy="git@hf.co:datasets/EXPM02/KRO-FullClient-2021-11-17-SAK" aria-label="复制 Git SSH 命令"><span>复制 Git SSH</span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="11" height="11" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg></button></div>
+      </article>
+      <article class="client-card" data-year="2015" data-region="kRO" data-search="kro_fullclient_20150101 2015 kro 20150101 完整韩版客户端 未改动，可打简中补丁" style="--i:8">
+        <div class="card-meta"><span class="year">2015</span><span class="region">kRO</span></div>
+        <h2>kRO_FullClient_20150101</h2>
+        <p class="description">20150101 完整韩版客户端</p>
+        <p class="status">未改动，可打简中补丁</p>
+        <div class="actions"><a class="action primary" href="https://huggingface.co/datasets/EXPM02/kRO_FullClient_20150101" target="_blank" rel="noreferrer"><span>打开 HF 页面</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M19 5l-9 9"/><path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg></a><button class="action copy" type="button" data-copy="git@hf.co:datasets/EXPM02/kRO_FullClient_20150101" aria-label="复制 Git SSH 命令"><span>复制 Git SSH</span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="11" height="11" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg></button></div>
+      </article>
+      <article class="client-card" data-year="2010" data-region="kRO" data-search="kro_fullclient_20101117 2010 kro 20101117 完整韩版客户端 未改动，可打简中补丁" style="--i:9">
+        <div class="card-meta"><span class="year">2010</span><span class="region">kRO</span></div>
+        <h2>kRO_FullClient_20101117</h2>
+        <p class="description">20101117 完整韩版客户端</p>
+        <p class="status">未改动，可打简中补丁</p>
+        <div class="actions"><a class="action primary" href="https://huggingface.co/datasets/EXPM02/kRO_FullClient_20101117" target="_blank" rel="noreferrer"><span>打开 HF 页面</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M19 5l-9 9"/><path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg></a><button class="action copy" type="button" data-copy="git@hf.co:datasets/EXPM02/kRO_FullClient_20101117" aria-label="复制 Git SSH 命令"><span>复制 Git SSH</span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="11" height="11" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg></button></div>
+      </article></section><div class="empty" id="empty"><strong>没有匹配的客户端</strong><p>试试其他关键词或筛选条件。</p></div></main>
+  <footer><div class="shell">数据来自仓库 Markdown 文件 · <a href="https://github.com/Casual-Ragnarok/ragnarok-clients">查看 GitHub 仓库</a></div></footer>
+  <script>
+    const cards=[...document.querySelectorAll('.client-card')],search=document.querySelector('#search'),count=document.querySelector('#result-count'),empty=document.querySelector('#empty');let active='all';
+    function update(){const query=search.value.trim().toLowerCase();let visible=0;cards.forEach(card=>{const filterMatch=active==='all'||(active.startsWith('year:')?card.dataset.year===active.slice(5):card.dataset.region===active.slice(7));const show=filterMatch&&card.dataset.search.includes(query);card.hidden=!show;if(show)visible++});count.textContent=`显示 ${visible} / ${cards.length} 个资源`;empty.style.display=visible?'none':'block'}
+    search.addEventListener('input',update);document.querySelectorAll('.filter').forEach(button=>button.addEventListener('click',()=>{document.querySelector('.filter.active').classList.remove('active');button.classList.add('active');active=button.dataset.filter;update()}));
+    document.querySelectorAll('[data-copy]').forEach(button=>button.addEventListener('click',async()=>{const label=button.querySelector('span');try{await navigator.clipboard.writeText(button.dataset.copy);label.textContent='已复制';button.classList.add('copied');setTimeout(()=>{label.textContent='复制 Git SSH';button.classList.remove('copied')},1600)}catch{label.textContent='复制失败'}}));update();
+  </script>
+</body>
+</html>
