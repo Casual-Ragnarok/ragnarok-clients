@@ -125,7 +125,7 @@ def render_page(clients: list[Client]) -> str:
   <title>Ragnarok Clients</title>
   <style>
     :root{color-scheme:light;--ink:#20231f;--muted:#687068;--paper:#f5f6f2;--surface:#fff;--line:#d9ddd5;--accent:#26705d;--accent-dark:#195243}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:"Segoe UI","Microsoft YaHei",Arial,sans-serif;letter-spacing:0}
+    *{box-sizing:border-box}[hidden]{display:none!important}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:"Segoe UI","Microsoft YaHei",Arial,sans-serif;letter-spacing:0}
     button,a{font:inherit}button{color:inherit}.shell{width:min(1180px,calc(100% - 40px));margin:0 auto}
     header{padding:72px 0 44px;border-bottom:1px solid var(--line)}.eyebrow{margin:0 0 16px;color:var(--accent);font:700 12px/1.2 Consolas,monospace;text-transform:uppercase}
     h1{max-width:760px;margin:0;font-size:clamp(38px,7vw,76px);line-height:.98;font-weight:760;letter-spacing:0}.intro{max-width:620px;margin:24px 0 0;color:var(--muted);font-size:17px;line-height:1.7}
