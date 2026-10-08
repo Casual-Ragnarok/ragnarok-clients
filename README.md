@@ -4,7 +4,7 @@ license: apache-2.0
 
 # Ragnarok Clients
 
-Ragnarok Online 客户端资源索引，按年份、地区和语言整理 2010 年之后，也就是复兴（Renewal / RE）之后可用的客户端资源、补丁状态和下载来源。
+Ragnarok Online 客户端资源索引，按年份、地区和语言整理 2004 年之后可用的客户端资源、补丁状态和下载来源。
 
 ## 目录
 
@@ -25,7 +25,7 @@ Ragnarok Online 客户端资源索引，按年份、地区和语言整理 2010 �
 
 ## PRE 与 RE
 
-这个仓库目前收集到的都是 2010 年之后的复兴后客户端。按照 [Ragnarok EP 版本时间线](https://exp-blog.com/game/ro/ragnarok-episode-timeline/) 的记录，EP13.2 `Encounter` 是 2008-12-17，`Renewal Release（3-1 Jobs）` 是 2009-06-17，复兴后的 EP13.3 `El Dicastes` 是 2009-12-23。
+按照 [Ragnarok EP 版本时间线](https://exp-blog.com/game/ro/ragnarok-episode-timeline/) 的记录，EP13.2 `Encounter` 是 2008-12-17，`Renewal Release（3-1 Jobs）` 是 2009-06-17，复兴后的 EP13.3 `El Dicastes` 是 2009-12-23。
 
 真正复兴前的 PRE 客户端，尤其是 2008 年前后、EP13.2 之前或附近的客户端，现在已经很难找到了。即使在 rAthena 中把 `renewal.h` 的 `#define PRERE` 取消注释，现有 Ragexe 或 RagexeRE 的封包也不一定能直接接入服务端。
 
@@ -34,6 +34,8 @@ Ragnarok Online 客户端资源索引，按年份、地区和语言整理 2010 �
 常见处理方式包括：注释掉职业变更脚本以移除第三职业；用源文件实现 `renewal.h` 中需要的功能，或者保留 `renewal.h` 但移除不需要的 Renewal 经验和掉落率限制。这样得到的是接近 PRE 的服务器环境，非第三职业仍然沿用 PRE 的计算方式。
 
 二转前的职业伤害公式在 RE 和 PRE 中基本一致。
+
+> 有幸从老家翻出了 2004 国服樱之花嫁 的 CD，才有了真正的复兴前 PRE 客户端
 
 ## 备注
 
