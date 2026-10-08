@@ -5,7 +5,7 @@
 - https://huggingface.co/datasets/EXPM02/Cherry_Blossom_Bride_FullClient_2004
 - git clone git@hf.co:datasets/EXPM02/Cherry_Blossom_Bride_FullClient_2004
 
-![](./imgs/01.jpg)
+![](../imgs/01.jpg)
 
-![](./imgs/02.jpg)
+![](../imgs/02.jpg)
 
