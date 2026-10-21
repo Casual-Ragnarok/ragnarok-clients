@@ -4,7 +4,6 @@
 from __future__ import annotations
 
 import argparse
-import shutil
 import html
 import re
 from dataclasses import dataclass
@@ -146,13 +145,15 @@ def render_page(clients: list[Client]) -> str:
     @media(max-width:720px){.shell{width:min(100% - 28px,1180px)}header{padding:48px 0 32px}.summary{gap:20px}.grid{grid-template-columns:1fr}.client-card{min-height:270px;padding:20px}.actions{grid-template-columns:1fr}.toolbar{padding-top:10px}}
     @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
   </style>
-<link rel="stylesheet" href="assets/community-navigation.css?v=20261021-3">
-<script src="assets/community-navigation.js?v=20261021-3" defer></script>
+
+
+<link rel="stylesheet" href="https://repos.casualro.top/shared/site.css">
+<script defer data-site="clients" src="https://repos.casualro.top/shared/site.js"></script>
 </head>
 <body>
   <header><div class="shell"><p class="eyebrow">Renewal client archive</p><h1>Ragnarok Clients</h1><p class="intro">按年份与语言整理的 Ragnarok Online 完整客户端资源。打开 Hugging Face 数据集，或复制 Git SSH 命令直接获取。</p><div class="summary"><div class="metric"><strong>__COUNT__</strong><span>客户端资源</span></div><div class="metric"><strong>__YEARS__</strong><span>收录年份</span></div></div></div></header>
   <main class="shell"><div class="toolbar"><label class="search-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input id="search" type="search" placeholder="搜索名称、年份或语言" aria-label="搜索客户端"></label><div class="filters" aria-label="筛选客户端">__FILTERS__</div></div><p class="result-line" id="result-count" aria-live="polite"></p><section class="grid" id="client-grid">__CARDS__</section><div class="empty" id="empty"><strong>没有匹配的客户端</strong><p>试试其他关键词或筛选条件。</p></div></main>
-  <footer><div class="shell">数据来自仓库 Markdown 文件 · <a href="https://github.com/Casual-Ragnarok/ragnarok-clients">查看 GitHub 仓库</a></div></footer>
+  <footer id="footer"></footer>
   <script>
     const cards=[...document.querySelectorAll('.client-card')],search=document.querySelector('#search'),count=document.querySelector('#result-count'),empty=document.querySelector('#empty');let active='all';
     function update(){const query=search.value.trim().toLowerCase();let visible=0;cards.forEach(card=>{const filterMatch=active==='all'||(active.startsWith('year:')?card.dataset.year===active.slice(5):card.dataset.region===active.slice(7));const show=filterMatch&&card.dataset.search.includes(query);card.hidden=!show;if(show)visible++});count.textContent=`显示 ${visible} / ${cards.length} 个资源`;empty.style.display=visible?'none':'block'}
@@ -179,10 +180,6 @@ def main() -> None:
         raise SystemExit("No client entries found in year directories.")
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(render_page(clients), encoding="utf-8", newline="\n")
-    asset_dir = output.parent / "assets"
-    asset_dir.mkdir(exist_ok=True)
-    for name in ("community-navigation.js", "community-navigation.css"):
-        shutil.copyfile(root / "assets" / name, asset_dir / name)
     (output.parent / ".nojekyll").touch()
     print(f"Generated {output} with {len(clients)} clients.")
 
