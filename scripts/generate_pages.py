@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import shutil
 import html
 import re
 from dataclasses import dataclass
@@ -145,6 +146,8 @@ def render_page(clients: list[Client]) -> str:
     @media(max-width:720px){.shell{width:min(100% - 28px,1180px)}header{padding:48px 0 32px}.summary{gap:20px}.grid{grid-template-columns:1fr}.client-card{min-height:270px;padding:20px}.actions{grid-template-columns:1fr}.toolbar{padding-top:10px}}
     @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
   </style>
+<link rel="stylesheet" href="assets/community-navigation.css?v=20261021">
+<script src="assets/community-navigation.js?v=20261021" defer></script>
 </head>
 <body>
   <header><div class="shell"><p class="eyebrow">Renewal client archive</p><h1>Ragnarok Clients</h1><p class="intro">按年份与语言整理的 Ragnarok Online 完整客户端资源。打开 Hugging Face 数据集，或复制 Git SSH 命令直接获取。</p><div class="summary"><div class="metric"><strong>__COUNT__</strong><span>客户端资源</span></div><div class="metric"><strong>__YEARS__</strong><span>收录年份</span></div></div></div></header>
@@ -176,6 +179,10 @@ def main() -> None:
         raise SystemExit("No client entries found in year directories.")
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(render_page(clients), encoding="utf-8", newline="\n")
+    asset_dir = output.parent / "assets"
+    asset_dir.mkdir(exist_ok=True)
+    for name in ("community-navigation.js", "community-navigation.css"):
+        shutil.copyfile(root / "assets" / name, asset_dir / name)
     (output.parent / ".nojekyll").touch()
     print(f"Generated {output} with {len(clients)} clients.")
 
